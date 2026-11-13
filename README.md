@@ -27,7 +27,7 @@
 
 <br/>
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rahadcodes228/RS_ENCODER_MIRROR_BOT)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RAHAT11790/RS_ENCODER_MIRROR_BOT)
 
 </div>
 
