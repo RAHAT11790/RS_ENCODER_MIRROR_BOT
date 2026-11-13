@@ -848,7 +848,7 @@ COMMAND_MENU = [
     ("4k", "Encode at 4K (2160p)"),
     ("264h", "Encoder codec: H.264"),
     ("265h", "Encoder codec: H.265"),
-    ("settings", "Show encoder settings"),
+    ("settings", "Encoder settings panel (buttons)"),
     ("reset", "Reset encoder settings"),
     ("synccommands", "Owner: resync the Telegram command menu"),
     ("status", "Live progress board"),
@@ -1359,6 +1359,12 @@ async def amain():
     if problems:
         LOGGER.error("Missing configuration: " + ", ".join(problems) + " (config.py or environment variables)")
         sys.exit(2)
+    # web hosts (Heroku) kill a web dyno that does not bind $PORT within 60 s, so the status
+    # server goes up BEFORE the Telegram login (which can wait out a FloodWait)
+    from .heroku import start_web, write_cookies_from_env
+
+    write_cookies_from_env()
+    web_runner = await start_web()
     os.makedirs(Config.DOWNLOAD_DIR, exist_ok=True)
     # leftovers of a previous crash: only this bot's own task folders (8 hex chars) are
     # removed, and only when DOWNLOAD_DIR is a dedicated folder - never the project itself
@@ -1422,6 +1428,8 @@ async def amain():
         await idle()
     finally:
         await client.stop()
+        if web_runner is not None:
+            await web_runner.cleanup()
 
 
 def run():
