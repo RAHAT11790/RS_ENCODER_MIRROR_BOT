@@ -1,583 +1,571 @@
-<div align="center"><a href="#">
-  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=34&duration=2500&pause=900&color=00E5FF&center=true&vCenter=true&width=850&lines=RS+ENCODER+MIRROR+BOT;DOWNLOAD+%E2%80%A2+ENCODE+%E2%80%A2+UPLOAD;YOUR+ALL-IN-ONE+TELEGRAM+MEDIA+ENGINE" alt="RS ENCODER MIRROR BOT" />
-</a><p>
-  <img src="https://img.shields.io/badge/PROJECT-RS_ENCODER_MIRROR_BOT-00D9FF?style=for-the-badge&logo=telegram&logoColor=white" />
-  <img src="https://img.shields.io/badge/PYTHON-3.10--3.13-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/FFMPEG-POWERED-00A86B?style=for-the-badge&logo=ffmpeg&logoColor=white" />
-</p><p>
-  <img src="https://img.shields.io/badge/ENGINE-MEDIA_PROCESSING-8A2BE2?style=flat-square" />
-  <img src="https://img.shields.io/badge/PLATFORM-TELEGRAM-26A5E4?style=flat-square&logo=telegram" />
-  <img src="https://img.shields.io/badge/STATUS-SELF_HOSTED-00C853?style=flat-square" />
-</p>⚡ THE ULTIMATE TELEGRAM MIRROR & VIDEO ENCODER
+<div align="center">
 
-Download • Mirror • Extract • Convert • Encode • Upload
+<img src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=800&size=32&duration=2800&pause=900&color=00E5FF&center=true&vCenter=true&width=900&lines=RS+ENCODER+MIRROR+BOT;DOWNLOAD+%E2%80%A2+ENCODE+%E2%80%A2+UPLOAD;ALL-IN-ONE+TELEGRAM+MEDIA+ENGINE" alt="RS ENCODER MIRROR BOT" />
 
-A powerful Telegram-based media automation system combining direct downloads, yt-dlp extraction, archive processing, FFmpeg video encoding, automatic thumbnails, and intelligent file delivery.
+<br/>
 
-</div>---
+**Mirror, extract, encode and deliver media straight from Telegram.**
 
-<div align="center">◈ PROJECT OVERVIEW ◈
+<br/>
 
-</div>RS ENCODER MIRROR BOT is an advanced Telegram media-processing bot designed to make downloading, mirroring, extracting, converting, and uploading files easier through a single Telegram interface.
+![Python](https://img.shields.io/badge/Python-3.10%20to%203.13-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-Powered-007808?style=for-the-badge&logo=ffmpeg&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram-Bot-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)
+![yt-dlp](https://img.shields.io/badge/yt--dlp-Integrated-FF0000?style=for-the-badge&logo=youtube&logoColor=white)
+![Hosting](https://img.shields.io/badge/Hosting-Self--Hosted-00C853?style=for-the-badge)
 
-Built with Python and asynchronous task processing, this project integrates multiple media tools into one streamlined workflow.
+<br/>
 
-Whether you want to download a direct video URL, extract media from supported websites, process Telegram videos, extract protected archives, or encode videos into your preferred resolution, this bot brings everything together.
+[Features](#-features) ·
+[Workflow](#-how-it-works) ·
+[Commands](#-commands) ·
+[Examples](#-usage-examples) ·
+[Install](#-installation) ·
+[Config](#-configuration) ·
+[Security](#-security)
 
-✨ What makes it powerful?
-
-- Advanced mirror and leech engine.
-- Integrated FFmpeg video encoder.
-- H.264 and H.265 video compression.
-- Multiple video resolution presets.
-- yt-dlp media extraction.
-- Automatic thumbnail generation.
-- Archive extraction with password handling.
-- Live task progress monitoring.
-- Concurrent download and upload processing.
-- Automatic temporary-file cleanup.
-- Per-user encoder preferences.
-- Owner and administrator management.
+</div>
 
 ---
 
-<div align="center">◈ CORE FEATURES ◈
+## 📖 Overview
 
-</div><table>
+**RS ENCODER MIRROR BOT** is a self-hosted Telegram bot that puts your whole media pipeline behind one chat interface. Send a link or a file, and the bot downloads it, optionally extracts or encodes it, builds a thumbnail, splits oversized output and uploads the result back to Telegram. All of it runs asynchronously, with a live progress board.
+
+| | |
+|---|---|
+| 📥 **Get** | Direct links, Telegram media, YouTube, HLS / M3U8 and any site yt-dlp supports |
+| 🎬 **Process** | Archive extraction, H.264 / H.265 encoding, resolution scaling |
+| 📤 **Deliver** | Auto thumbnails, file splitting, parallel uploads, automatic cleanup |
+
+---
+
+## ✨ Features
+
+<table>
 <tr>
-<td width="50%" valign="top">📥 ADVANCED MIRROR ENGINE
+<td width="50%" valign="top">
 
-- Direct HTTP/HTTPS downloads.
-- Telegram media downloading.
-- Multiple URL processing.
-- yt-dlp integration.
-- YouTube media extraction.
-- HLS / M3U8 support through yt-dlp.
-- Custom output filenames.
-- Optional download headers.
+### 📥 Mirror Engine
+
+- Direct HTTP / HTTPS downloads
+- Telegram media downloads
+- Several URLs in a single task
+- yt-dlp integration (YouTube, HLS / M3U8 and more)
+- Custom output filenames
+- Optional download headers
+- Cookie file support for restricted sources
 
 </td>
-<td width="50%" valign="top">🎬 PROFESSIONAL VIDEO ENCODER
+<td width="50%" valign="top">
 
-- FFmpeg-based encoding.
-- H.264 (AVC) support.
-- H.265 (HEVC) support.
-- CRF quality configuration.
-- Multiple encoding presets.
-- Resolution selection.
-- Audio codec configuration.
-- MP4, MKV and AVI containers.
+### 🎬 Video Encoder
+
+- FFmpeg based, **H.264** and **H.265**
+- CRF quality control
+- Presets from `ultrafast` to `slow`
+- Resolutions from 360p to 4K, or original
+- Audio: AAC, AC3, Opus or copy
+- MP4, MKV and AVI containers
+- Per-user saved encoder settings
 
 </td>
 </tr>
 <tr>
-<td valign="top">📦 SMART ARCHIVE PROCESSOR
+<td width="50%" valign="top">
 
-- ZIP archive extraction.
-- RAR and 7Z through compatible 7-Zip tools.
-- TAR, GZIP, BZIP2 and XZ support.
-- Password-protected archive handling.
-- Interactive password requests.
-- Automatic extraction directory management.
-- Safe extraction path checks.
+### 📦 Archive Processor
+
+- ZIP, TAR, GZIP, BZIP2 and XZ
+- RAR and 7Z through a 7-Zip compatible tool
+- Password-protected archives
+- Interactive password prompt
+- Safe extraction path checks
+- Opt-in only, via the `-e` flag
 
 </td>
-<td valign="top">🖼️ INTELLIGENT THUMBNAIL SYSTEM
+<td width="50%" valign="top">
 
-- Automatic video thumbnails.
-- TMDb artwork integration.
-- Backdrop and logo composition.
-- FFmpeg frame-sheet generation.
-- Custom personal thumbnails.
-- Configurable thumbnail layouts.
-- Automatic thumbnail selection.
+### 🖼️ Thumbnail System
+
+- Automatic video thumbnails
+- TMDb backdrop and logo composition
+- FFmpeg frame sheets (for example `2x2`)
+- Personal custom thumbnails
+- Configurable layouts
 
 </td>
 </tr>
 <tr>
-<td valign="top">⚡ HIGH-PERFORMANCE TASK SYSTEM
+<td width="50%" valign="top">
 
-- Asynchronous task management.
-- Configurable concurrent pipelines.
-- Parallel upload management.
-- Separate FFmpeg concurrency controls.
-- Live progress updates.
-- Task cancellation.
-- Disk-space protection.
-- Automatic workspace cleanup.
+### ⚡ Task System
+
+- Fully asynchronous pipelines
+- Configurable concurrency for tasks, uploads and FFmpeg
+- Live progress board
+- Task cancellation
+- Free-disk-space protection
+- Automatic workspace cleanup
 
 </td>
-<td valign="top">🛡️ ADMINISTRATION & ACCESS CONTROL
+<td width="50%" valign="top">
 
-- Owner-only administration.
-- Sudo-user configuration.
-- Authorized chat management.
-- User banning and unbanning.
-- Premium user management.
-- Bot restart command.
-- Log retrieval.
-- Telegram command-menu synchronization.
+### 🛡️ Access Control
+
+- Owner-only administration
+- Sudo users and authorized chats
+- Ban and unban users or chats
+- Premium user management
+- Restart and log retrieval
+- Telegram command menu sync
 
 </td>
 </tr>
-</table>---
+</table>
 
-<div align="center">◈ SYSTEM ARCHITECTURE ◈
+---
 
-</div>flowchart TD
-    A["Telegram User"] --> B["Bot Interface"]
-    B --> C{"Identify Input"}
-    C --> D["Direct HTTP"]
-    C --> E["yt-dlp"]
-    C --> F["Telegram Media"]
+## 🔄 How It Works
 
-    D --> G["Download Manager"]
+```mermaid
+flowchart TD
+    A["👤 Telegram user"] --> B["🤖 Bot interface"]
+    B --> C{"Input type"}
+    C --> D["🔗 Direct HTTP"]
+    C --> E["▶️ yt-dlp"]
+    C --> F["📎 Telegram media"]
+
+    D --> G["⬇️ Download manager"]
     E --> G
     F --> G
 
-    G --> H{"Archive Extraction?"}
-    H -->|Yes| I["7-Zip / Archive Engine"]
-    H -->|No| J{"Video Encoding?"}
+    G --> H{"Extract archive?"}
+    H -->|"-e flag"| I["📦 7-Zip / archive engine"]
+    H -->|No| J{"Encode video?"}
     I --> J
 
-    J -->|Yes| K["FFmpeg Encoder"]
-    J -->|No| L["Output Manager"]
+    J -->|Yes| K["🎞️ FFmpeg encoder"]
+    J -->|No| L["📂 Output manager"]
     K --> L
 
-    L --> M["File Splitter"]
-    M --> N["Telegram Uploader"]
-    N --> O["Completion Report"]
-    O --> P["Workspace Cleanup"]
+    L --> M["✂️ File splitter"]
+    M --> N["⬆️ Telegram uploader"]
+    N --> O["✅ Completion report"]
+    O --> P["🧹 Workspace cleanup"]
+```
 
-Processing Workflow
+<details>
+<summary><b>Step by step</b></summary>
 
-1. A user submits a media URL or Telegram media message.
+1. A user sends a media URL or a Telegram media message.
 2. The bot identifies the input source.
-3. The appropriate download engine retrieves the file.
-4. Archive extraction runs if requested.
-5. FFmpeg encoding runs if enabled.
-6. Output files are collected and checked.
-7. Oversized files are split according to configuration.
-8. Files are uploaded to Telegram.
+3. The matching download engine fetches the file.
+4. Archive extraction runs if `-e` was given.
+5. FFmpeg encoding runs if requested.
+6. Output files are collected and validated.
+7. Files above the split limit are cut into numbered parts.
+8. Everything is uploaded to Telegram.
 9. The bot reports completion or failure.
-10. Temporary task files are automatically removed.
+10. Temporary task files are removed.
+
+</details>
 
 ---
 
-<div align="center">◈ ENCODER TECHNOLOGY ◈
+## 🎞️ Encoder Reference
 
-</div>🎞️ Supported Video Codecs
+<table>
+<tr>
+<td valign="top" width="50%">
 
-Codec| Technology| Description
-H.264| libx264| Broad compatibility
-H.265| libx265| Better compression efficiency
+**Resolution presets**
 
-📐 Resolution Presets
+| Preset | Output height |
+|:--|:--|
+| `360p` | 360 |
+| `480p` | 480 |
+| `560p` / `576p` | 576 |
+| `720p` | 720 |
+| `1080p` | 1080 |
+| `1440p` / `2k` | 1440 |
+| `2160p` / `4k` | 2160 |
+| `OG` | Original source height |
 
-Preset| Resolution
-360p| 640 × 360 (typical 16:9)
-480p| 854 × 480 (typical 16:9)
-560p| 576p output height
-720p| 1280 × 720 (typical 16:9)
-1080p| 1920 × 1080 (typical 16:9)
-1440p / 2K| 2560 × 1440 (typical 16:9)
-2160p / 4K| 3840 × 2160 (typical 16:9)
-OG| Original source height
+</td>
+<td valign="top" width="50%">
 
-🔊 Audio Options
+**Codecs and options**
 
-- AAC
-- Copy original audio
-- AC3
-- Opus
+| Option | Values |
+|:--|:--|
+| Video codec | H.264 (`libx264`), H.265 (`libx265`) |
+| Presets | `ultrafast` `superfast` `veryfast` `fast` `medium` `slow` |
+| Audio | `aac` `copy` `ac3` `opus` |
+| Containers | `mp4` `mkv` `avi` |
 
-⚙️ Encoding Presets
+</td>
+</tr>
+</table>
 
-"ultrafast" · "superfast" · "veryfast" · "fast" · "medium" · "slow"
+**Default encoder profile**
 
-📁 Supported Containers
+| Setting | Default | Setting | Default |
+|:--|:--|:--|:--|
+| Codec | H.264 | Audio | AAC |
+| Preset | `veryfast` | Audio bitrate | 128 kbps |
+| CRF | 26 | Container | MP4 |
+| Resolution | Original | Faststart | Enabled |
+| Subtitles | Copy | | |
 
-"MP4" · "MKV" · "AVI"
-
----
-
-<div align="center">◈ TELEGRAM COMMAND CENTER ◈
-
-</div>📥 Download Commands
-
-Command| Function
-"/start"| Open the main interface
-"/help"| Display help information
-"/leech"| Download a direct URL or replied media
-"/l"| Short alias for leech
-"/ytdlleech"| Download through yt-dlp
-"/yl"| Short alias for yt-dlp
-"/status"| Display active tasks
-"/cancel"| Cancel running tasks
-"/stats"| View bot/server statistics
-"/ping"| Check bot latency
-"/cookies"| Show cookie-file information
-"/setthumb"| Set personal thumbnail
-"/delthumb"| Delete personal thumbnail
-
-🎬 Encoder Commands
-
-Command| Function
-"/encode"| Encode using saved settings
-"/360p"| Encode at 360p
-"/480p"| Encode at 480p
-"/560p"| Encode at 576p
-"/576p"| Encode at 576p
-"/720p"| Encode at 720p
-"/1080p"| Encode at 1080p
-"/1440p"| Encode at 1440p
-"/2k"| Encode at 1440p
-"/4k"| Encode at 2160p
-"/264h"| Set H.264 codec
-"/265h"| Set H.265 codec
-"/settings"| View encoder settings
-"/reset"| Reset encoder settings
-
-👑 Administration Commands
-
-Command| Function
-"/authorize"| Authorize a user or chat
-"/unauthorize"| Remove authorization
-"/ban"| Ban a user or chat
-"/unban"| Remove a ban
-"/premium"| Manage premium users
-"/addpremium"| Add a premium user
-"/removepremium"| Remove a premium user
-"/restart"| Restart the bot
-"/log"| Retrieve bot logs
-"/synccommands"| Synchronize Telegram commands
+Per-user settings are stored in `data/encoder.json`.
 
 ---
 
-<div align="center">◈ USAGE EXAMPLES ◈
+## 💬 Commands
 
-</div>1. Direct URL Download
+### 📥 Download and general
 
+| Command | Description |
+|:--|:--|
+| `/start` | Open the main interface |
+| `/help` | Show the command guide |
+| `/leech` · `/l` | Download a direct URL or replied media |
+| `/ytdlleech` · `/yl` | Download through yt-dlp (also `/ytleech`, `/ytdl`) |
+| `/status` | Live progress board |
+| `/cancel` | Cancel a running task |
+| `/stats` | Bot and server statistics |
+| `/ping` | Check latency |
+| `/cookies` | Show where to place the yt-dlp cookie file |
+| `/setthumb` · `/delthumb` | Set or remove your personal thumbnail |
+
+### 🎬 Encoder
+
+| Command | Description |
+|:--|:--|
+| `/encode` | Encode with your saved settings |
+| `/360p` `/480p` `/560p` `/576p` | Encode at that height |
+| `/720p` `/1080p` `/1440p` `/2k` `/2160p` `/4k` | Encode at that height |
+| `/264h` · `/265h` | Set the codec to H.264 or H.265 |
+| `/settings` | Show your encoder settings |
+| `/reset` | Reset encoder settings to defaults |
+
+### 👑 Owner and admin
+
+| Command | Description |
+|:--|:--|
+| `/authorize` · `/unauthorize` | Grant or revoke access for a user or chat |
+| `/ban` · `/unban` | Block or unblock a user or chat |
+| `/premium` | Add, remove or list premium users |
+| `/addpremium` · `/removepremium` | Shortcuts for premium management |
+| `/restart` | Restart the bot |
+| `/log` | Download the log file |
+| `/synccommands` | Resync the Telegram command menu |
+
+### 🚩 Flags for `/leech` and `/ytdlleech`
+
+| Flag | Meaning |
+|:--|:--|
+| `-e` | Extract archives (off by default, archives are delivered as is) |
+| `-p <password>` | Password for protected archives |
+| `-n <name>` | Custom output filename |
+| `-d` | Upload as a document |
+| `-q <height>` | Video quality for yt-dlp (for example `720`) |
+| `-a` | Audio only (yt-dlp) |
+
+### 🚩 Flags for `/encode`
+
+| Flag | Meaning |
+|:--|:--|
+| `-r <res>` | Resolution, for example `720p` |
+| `-c <codec>` | `h264` or `h265` |
+| `-crf <0-51>` | Quality, lower means better quality and a bigger file |
+| `-preset <name>` | Speed preset |
+| `-a <codec>` | Audio codec |
+
+---
+
+## 🚀 Usage Examples
+
+```text
+# Download a direct link
 /leech https://example.com/video.mp4
 
-2. Short Leech Command
-
+# Short form
 /l https://example.com/video.mp4
 
-3. Archive Extraction
-
+# Download and extract an archive
 /l https://example.com/archive.zip -e
 
-4. Download with yt-dlp
+# Extract a password-protected archive
+/l https://example.com/archive.zip -e -p mypassword
 
+# yt-dlp download
 /yl https://youtu.be/VIDEO_ID
 
-5. Select Video Quality
-
+# Pick a quality
 /yl https://youtu.be/VIDEO_ID -q 720
 
-6. Download Audio
-
+# Audio only
 /yl https://youtu.be/VIDEO_ID -a
 
-7. Custom Output Filename
-
+# Custom filename
 /yl https://youtu.be/VIDEO_ID -n My_Video
+```
 
-8. Encode a Replied Video
+**Encoding.** Reply to a Telegram video with any of these:
 
-Reply to a Telegram video and send:
-
+```text
 /encode
-
-9. Custom Encoding Configuration
-
 /encode -r 720p -c h265 -crf 22 -preset fast
-
-10. Change Video Codec
-
+/720p
 /265h
-
-Or:
-
-/264h
-
-Note: Archive extraction is optional. Use "-e" to enable extraction. Without this flag, archives are delivered without extraction.
+```
 
 ---
 
-<div align="center">◈ INSTALLATION GUIDE ◈
+## 🧰 Installation
 
-</div>📋 Requirements
+### Requirements
 
-- Python 3.10–3.13
-- Telegram Bot Token
-- Telegram API ID
-- Telegram API Hash
+- Python **3.10 to 3.13** (3.14 is not supported yet)
+- Telegram **Bot Token** (from [@BotFather](https://t.me/BotFather))
+- Telegram **API ID** and **API Hash** (from [my.telegram.org](https://my.telegram.org))
 - FFmpeg and FFprobe
-- 7-Zip compatible utility
-- Internet connection
-- Sufficient disk space
+- A 7-Zip compatible tool (only for RAR / 7Z)
+- Enough free disk space
 
-1. Clone the Repository
+> `main.py` installs missing Python packages by itself. For FFmpeg, yt-dlp and 7-Zip without root access (Linux, Termux), run `bash install.sh`: it downloads portable builds into `./bin`.
 
+### 1. Clone
+
+```bash
 git clone https://github.com/rahadcodes228/RS_ENCODER_MIRROR_BOT.git
-
 cd RS_ENCODER_MIRROR_BOT
+```
 
-2. Create a Virtual Environment
+### 2. Create a virtual environment
 
-Linux / VPS / Termux
+<details open>
+<summary><b>Linux · VPS · Termux</b></summary>
 
+```bash
 python -m venv .venv
-
-Activate it:
-
 source .venv/bin/activate
+```
 
-Windows
+</details>
 
+<details>
+<summary><b>Windows</b></summary>
+
+```bat
 py -3.13 -m venv .venv
-
 .venv\Scripts\activate
+```
 
-3. Install Python Dependencies
+You can also just double-click `start.bat`, which creates the environment and starts the bot.
 
+</details>
+
+### 3. Install dependencies
+
+```bash
 python -m pip install --upgrade pip
-
 pip install -r requirements.txt
+```
 
-4. Configure the Bot
+### 4. Configure
 
-Open:
+```bash
+cp config.example.py config.py
+```
 
-config.py
+Open `config.py` and fill in your own values:
 
-Set your own Telegram credentials and owner configuration.
-
-BOT_TOKEN = "YOUR_BOT_TOKEN"
-
-TELEGRAM_API = YOUR_API_ID
-
+```python
+BOT_TOKEN     = "YOUR_BOT_TOKEN"
+TELEGRAM_API  = 123456            # your API ID
 TELEGRAM_HASH = "YOUR_API_HASH"
+OWNER_ID      = 123456789         # your numeric Telegram user ID
+```
 
-OWNER_ID = YOUR_TELEGRAM_USER_ID
+Optional: add `TMDB_API_KEY` for automatic artwork.
 
-SUDO_USERS = ""
+### 5. Run
 
-AUTHORIZED_CHATS = ""
-
-Configure the TMDb credentials if you want automatic artwork integration:
-
-TMDB_API_KEY = "YOUR_TMDB_API_KEY"
-
-Never publish real tokens, API credentials, cookies or private configuration files.
-
-5. Start the Bot
-
+```bash
 python main.py
+```
 
-The launcher includes a setup routine for Python dependencies and supported portable runtime tools. It also starts the bot through a supervised child process.
-
----
-
-<div align="center">◈ CONFIGURATION REFERENCE ◈
-
-</div>The main configuration is managed through "config.py". Environment variables with matching names can also override configuration values.
-
-Variable| Purpose
-"BOT_TOKEN"| Telegram bot token
-"TELEGRAM_API"| Telegram API ID
-"TELEGRAM_HASH"| Telegram API hash
-"OWNER_ID"| Bot owner ID
-"SUDO_USERS"| Additional administrator IDs
-"AUTHORIZED_CHATS"| Authorized user/chat IDs
-"DOWNLOAD_DIR"| Download workspace
-"MAX_CONCURRENT_TASKS"| Maximum concurrent pipelines
-"MAX_CONCURRENT_UPLOADS"| Concurrent file uploads
-"MAX_PARALLEL_FFMPEG"| Parallel FFmpeg operations
-"DOWNLOAD_CONNECTIONS"| Direct download connections
-"MIN_FREE_DISK_GB"| Minimum free disk requirement
-"MAX_FILE_SIZE_GB"| Maximum output size; zero means unlimited
-"SPLIT_SIZE"| File splitting threshold
-"LEECH_TO_PM"| Deliver group-requested files privately
-"AS_DOCUMENT"| Upload files as documents
-"AUTO_THUMBNAIL"| Enable automatic thumbnails
-"THUMBNAIL_LAYOUT"| Video frame-sheet layout
-"TMDB_API_KEY"| TMDb API key
-"TMDB_ACCESS_TOKEN"| TMDb access token
-"YT_COOKIES_FILE"| yt-dlp cookies file
-"TG_PROXY"| Optional Telegram outbound proxy
-"STATUS_UPDATE_INTERVAL"| Task progress update interval
-"AUTO_DELETE_MESSAGES"| Automatic message cleanup
-"TIMEZONE"| Configured timezone
-
-Default Encoder Profile
-
-Option| Default
-Codec| H.264
-Preset| veryfast
-CRF| 26
-Resolution| Original
-Audio| AAC
-Audio bitrate| 128 kbps
-Container| MP4
-Faststart| Enabled
-Subtitles| Copy
-
-Per-user encoder preferences are stored in:
-
-data/encoder.json
-
-Bot authorization settings and personal thumbnails are stored locally under:
-
-data/
+`main.py` checks the interpreter, installs missing packages, starts the bot in a supervised child process and restarts it after a crash. It gives up after 8 quick crashes in a row.
 
 ---
 
-<div align="center">◈ PROJECT STRUCTURE ◈
+## ⚙️ Configuration
 
-</div>RS_ENCODER_MIRROR_BOT/
-│
-├── main.py
-├── config.py
+Everything lives in `config.py`. Any value can also be set as an **environment variable** with the same name.
+
+<details>
+<summary><b>Credentials and access</b></summary>
+
+| Variable | Purpose |
+|:--|:--|
+| `BOT_TOKEN` | Telegram bot token |
+| `TELEGRAM_API` | Telegram API ID |
+| `TELEGRAM_HASH` | Telegram API hash |
+| `OWNER_ID` | Owner's numeric Telegram ID |
+| `SUDO_USERS` | Extra admin IDs (space or comma separated) |
+| `AUTHORIZED_CHATS` | Users and chats allowed to use the bot |
+
+</details>
+
+<details>
+<summary><b>Speed and resources</b></summary>
+
+| Variable | Default | Purpose |
+|:--|:--|:--|
+| `DOWNLOAD_DIR` | `downloads` | Working directory |
+| `MAX_CONCURRENT_TASKS` | `2` | Pipelines running at once |
+| `MAX_CONCURRENT_UPLOADS` | `2` | Simultaneous uploads (1 to 4) |
+| `MAX_PARALLEL_FFMPEG` | `2` | Parallel FFmpeg / FFprobe processes |
+| `DOWNLOAD_CONNECTIONS` | `8` | Connections per direct download (1 to 8) |
+| `MIN_FREE_DISK_GB` | `2.0` | New tasks are refused below this |
+| `MAX_FILE_SIZE_GB` | `0` | Maximum output size, `0` means unlimited |
+| `SPLIT_SIZE` | `2097152000` | Split threshold in bytes |
+
+</details>
+
+<details>
+<summary><b>Delivery and thumbnails</b></summary>
+
+| Variable | Default | Purpose |
+|:--|:--|:--|
+| `LEECH_TO_PM` | `True` | Deliver group-requested files privately |
+| `AS_DOCUMENT` | `False` | Upload as documents instead of videos |
+| `AUTO_THUMBNAIL` | `True` | Generate thumbnails automatically |
+| `THUMBNAIL_LAYOUT` | `2x2` | Frame sheet layout, empty for a single frame |
+| `TMDB_API_KEY` | | TMDb API key |
+| `TMDB_ACCESS_TOKEN` | | TMDb access token |
+
+</details>
+
+<details>
+<summary><b>Downloads and interface</b></summary>
+
+| Variable | Default | Purpose |
+|:--|:--|:--|
+| `YT_COOKIES_FILE` | `cookies.txt` | yt-dlp cookie file (Netscape format) |
+| `TG_PROXY` | | Outbound proxy, for example `socks5://127.0.0.1:1080` |
+| `ALLOW_INSECURE_SSL` | `False` | Only for broken or self-signed servers |
+| `STATUS_UPDATE_INTERVAL` | `10` | Seconds between progress updates |
+| `SET_COMMANDS` | `True` | Refresh the command menu on start |
+| `AUTO_DELETE_MESSAGES` | `True` | Delete bot cards automatically |
+| `START_MESSAGE_TTL` | `30` | `/start` card lifetime (seconds) |
+| `INFO_MESSAGE_TTL` | `30` | Hint card lifetime (seconds) |
+| `RESULT_MESSAGE_TTL` | `60` | Result card lifetime (seconds) |
+| `CLEAN_USER_MESSAGES` | `True` | Delete the command message when the task ends |
+
+</details>
+
+---
+
+## 🗂️ Project Structure
+
+```text
+RS_ENCODER_MIRROR_BOT/
+├── main.py                 # Launcher: setup, supervision, auto-restart
+├── config.example.py       # Safe config template (copy to config.py)
 ├── requirements.txt
-├── install.sh
-├── start.bat
-├── rs_setup.py
-├── rsbin.py
-├── bin_bootstrap.py
-├── Procfile
+├── Procfile                # Worker process for PaaS hosting
+├── start.bat               # One-click Windows launcher
+├── install.sh              # Rootless installer for ffmpeg, yt-dlp and 7-Zip (into ./bin)
+├── rs_setup.py             # Pre-flight: checks and installs Python packages
+├── rsbin.py                # Finds tools in ./bin first, then in PATH
+├── bin_bootstrap.py        # Puts ./bin at the front of PATH at runtime
 │
-├── encoder/
-│   ├── __init__.py
+├── encoder/                # FFmpeg encoding engine
 │   ├── engine.py
 │   ├── presets.py
 │   ├── progress.py
 │   ├── settings.py
-│   └── assets/
-│       ├── font.ttf
-│       └── watermark.ass
+│   └── assets/             # font.ttf, watermark.ass
 │
-├── lite/
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── bot.py
-│   ├── buttons.py
-│   ├── config.py
-│   ├── encoder_commands.py
-│   ├── archive.py
-│   ├── engines.py
-│   ├── fmt.py
-│   ├── http_dl.py
-│   ├── media.py
-│   ├── pipeline.py
-│   ├── store.py
-│   ├── task.py
-│   ├── tmdb.py
-│   ├── uploader.py
-│   └── ytdl.py
-│
-└── README.md
+└── lite/                   # Bot core
+    ├── bot.py              # Handlers, commands, UI
+    ├── encoder_commands.py # /encode and resolution commands
+    ├── pipeline.py         # Download → extract → encode → upload
+    ├── http_dl.py          # Multi-connection direct downloader
+    ├── ytdl.py             # yt-dlp integration
+    ├── archive.py          # Archive extraction
+    ├── media.py            # ffprobe, thumbnails, transcoding
+    ├── tmdb.py             # TMDb artwork
+    ├── uploader.py         # Telegram upload and splitting
+    ├── task.py             # Task state and progress
+    ├── store.py            # Small local JSON store (authorized IDs, thumbnails)
+    ├── fmt.py              # Message formatting
+    ├── buttons.py          # Inline keyboards
+    ├── engines.py          # Engine labels and versions for the status card
+    └── config.py           # Defaults < config.py < environment variables
+```
 
 ---
 
-<div align="center">◈ TECHNOLOGY STACK ◈
+## 🧱 Tech Stack
 
-</div><p align="center">
-  <img src="https://skillicons.dev/icons?i=python,linux,bash,windows,git,github" alt="Technology stack" />
-</p>Technology| Role
-Python| Core application
-Wzgram| Telegram bot client framework
-asyncio| Asynchronous execution
-aiohttp| HTTP networking
-aiofiles| Asynchronous file operations
-yt-dlp| Website media extraction
-FFmpeg| Video/audio encoding
-FFprobe| Media information analysis
-Pillow| Thumbnail image processing
-Py7zr| Archive handling
-psutil| System monitoring
-
-Dependencies
-
-wzgram>=3.1.6,<4
-aiohttp>=3.9.5
-aiofiles>=23.2.1
-yt-dlp[default]>=2024.6.9
-pillow>=10.3.0
-psutil>=5.9.8
-py7zr>=0.22
+| Technology | Role |
+|:--|:--|
+| **Python** | Core application |
+| **wzgram** | Telegram client framework |
+| **asyncio** | Asynchronous execution |
+| **aiohttp** / **aiofiles** | Networking and file I/O |
+| **yt-dlp** | Website media extraction |
+| **FFmpeg** / **FFprobe** | Encoding and media analysis |
+| **Pillow** | Thumbnail processing |
+| **py7zr** | Archive handling |
+| **psutil** | System monitoring |
 
 ---
 
-<div align="center">◈ PERFORMANCE & RESOURCE MANAGEMENT ◈
+## 🔒 Security
 
-</div>The application includes configurable controls to help manage system resources.
+> [!WARNING]
+> Never commit real credentials. A leaked bot token lets anyone control your bot.
 
-- Concurrent task limits.
-- Separate upload concurrency.
-- FFmpeg process limits.
-- Direct download connection limits.
-- Minimum free disk-space checks.
-- Optional maximum output size.
-- Automatic file splitting.
-- Temporary task-folder cleanup.
-
-Important: Actual speed depends on server CPU, RAM, storage performance, network bandwidth, source-server limitations and the selected encoding configuration.
+- Keep `config.py` and `cookies.txt` out of Git (the included `.gitignore` already does this).
+- Keep TMDb and other API keys private.
+- Restrict owner and sudo access, and use `AUTHORIZED_CHATS`.
+- Protect your server and download directory.
+- Update Python packages and external binaries regularly.
+- If a token was ever exposed, revoke it in [@BotFather](https://t.me/BotFather) and generate a new one.
 
 ---
 
-<div align="center">◈ SECURITY & PRIVACY ◈
+## 📝 Notes
 
-</div>Security recommendations for self-hosting:
-
-- Keep your Telegram bot token private.
-- Never commit "config.py" with real credentials.
-- Never commit personal "cookies.txt".
-- Keep TMDb and other API credentials private.
-- Restrict owner and sudo commands.
-- Use authorized chat settings when needed.
-- Protect your server and download directories.
-- Regularly update Python dependencies and external binaries.
-
-If a bot token has been exposed, revoke it through BotFather and generate a replacement before deploying the repository publicly.
+- Designed for **self-hosted** use.
+- yt-dlp support depends on each website and its available formats.
+- RAR and 7Z need an installed 7-Zip compatible binary.
+- H.265 is slower than H.264, and 4K needs a lot of CPU and storage.
+- Telegram upload limits depend on the account and the bot API in use.
+- Respect copyright, website terms and the law when downloading or sharing media.
 
 ---
 
-<div align="center">◈ IMPORTANT NOTES ◈
+## 📄 License
 
-</div>- This project is designed for self-hosted deployment.
-- External media services can change their extraction rules.
-- yt-dlp support depends on the source website and available formats.
-- Some archive formats require an installed 7-Zip-compatible binary.
-- H.265 encoding may take longer than H.264.
-- 4K encoding requires substantial CPU and storage resources.
-- Telegram upload limits and account capabilities may affect delivery.
-- Respect copyright, website terms, and applicable laws when downloading or sharing media.
+No license has been chosen yet. Add a `LICENSE` file to state how others may use, modify and distribute this project.
 
 ---
 
-<div align="center">◈ LICENSE ◈
+<div align="center">
 
-</div>No explicit license file was identified in the supplied project package.
+**RS ENCODER MIRROR BOT**
 
-Before publishing this repository, add a "LICENSE" file and specify the terms under which others may use, modify and distribute the project.
+*Built for powerful media automation through Telegram.*
 
----
+[![GitHub](https://img.shields.io/badge/GitHub-View_Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahadcodes228/RS_ENCODER_MIRROR_BOT)
 
-<div align="center">◈ CONNECT WITH THE PROJECT ◈
-
-RS ENCODER MIRROR BOT
-
-Built for powerful media automation through Telegram.
-
-<a href="https://github.com/rahadcodes228/RS_ENCODER_MIRROR_BOT">
-  <img src="https://img.shields.io/badge/GITHUB-VIEW_REPOSITORY-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a><br><br>
-
-<img src="https://img.shields.io/badge/RS-ENCODER_MIRROR_BOT-00D9FF?style=for-the-badge" />DOWNLOAD • MIRROR • ENCODE • DELIVER
-
-<sub>© RS ENCODER MIRROR BOT · All rights reserved by their respective owners.</sub>
+<sub>Download · Mirror · Encode · Deliver</sub>
 
 </div>
