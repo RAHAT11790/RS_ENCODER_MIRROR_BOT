@@ -1,0 +1,59 @@
+{
+  "name": "RS ENCODER MIRROR BOT",
+  "description": "Telegram mirror, leech and FFmpeg video encoder bot with a built-in status page.",
+  "repository": "https://github.com/rahadcodes228/RS_ENCODER_MIRROR_BOT",
+  "keywords": ["telegram", "bot", "ffmpeg", "yt-dlp", "mirror", "leech", "encoder"],
+  "stack": "container",
+  "formation": {
+    "web": { "quantity": 1, "size": "basic" }
+  },
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather.",
+      "required": true
+    },
+    "TELEGRAM_API": {
+      "description": "API ID from my.telegram.org (numbers only).",
+      "required": true
+    },
+    "TELEGRAM_HASH": {
+      "description": "API hash from my.telegram.org.",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your numeric Telegram user ID (get it from @userinfobot).",
+      "required": true
+    },
+    "AUTHORIZED_CHATS": {
+      "description": "Group or user IDs allowed to use the bot, separated by spaces. Leave empty to allow only the owner.",
+      "required": false
+    },
+    "SUDO_USERS": {
+      "description": "Extra admin user IDs, separated by spaces.",
+      "required": false
+    },
+    "TMDB_API_KEY": {
+      "description": "Optional TMDb API key for automatic artwork thumbnails.",
+      "required": false
+    },
+    "YT_COOKIES": {
+      "description": "Optional yt-dlp cookies in Netscape format (the file content, pasted as text).",
+      "required": false
+    },
+    "MAX_CONCURRENT_TASKS": {
+      "description": "Tasks running at the same time. Keep 1 on small dynos.",
+      "value": "1",
+      "required": false
+    },
+    "MAX_PARALLEL_FFMPEG": {
+      "description": "Parallel FFmpeg processes. Keep 1 on small dynos.",
+      "value": "1",
+      "required": false
+    },
+    "TIMEZONE": {
+      "description": "Timezone name, for example Asia/Dhaka.",
+      "value": "UTC",
+      "required": false
+    }
+  }
+}
