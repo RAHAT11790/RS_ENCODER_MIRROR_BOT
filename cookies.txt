@@ -1,0 +1,7 @@
+# Netscape HTTP Cookie File
+# Paste the cookie lines exported from your browser BELOW these comment lines.
+# Export format: "Get cookies.txt LOCALLY" / yt-dlp "--cookies-from-browser".
+# Never share this file: it contains your logged-in session.
+#
+# Example line (columns are TAB separated):
+# .youtube.com	TRUE	/	TRUE	1893456000	VISITOR_INFO1_LIVE	example-value
