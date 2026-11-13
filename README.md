@@ -19,10 +19,15 @@
 [Features](#-features) ·
 [Workflow](#-how-it-works) ·
 [Commands](#-commands) ·
-[Examples](#-usage-examples) ·
-[Install](#-installation) ·
-[Config](#-configuration) ·
+[Settings Panel](#%EF%B8%8F-settings-panel) ·
+[Heroku](#%EF%B8%8F-deploy-on-heroku) ·
+[Install](#-installation-local--vps--termux) ·
+[Config](#%EF%B8%8F-configuration) ·
 [Security](#-security)
+
+<br/>
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rahadcodes228/RS_ENCODER_MIRROR_BOT)
 
 </div>
 
@@ -247,7 +252,7 @@ Per-user settings are stored in `data/encoder.json`.
 | `/360p` `/480p` `/560p` `/576p` | Encode at that height |
 | `/720p` `/1080p` `/1440p` `/2k` `/2160p` `/4k` | Encode at that height |
 | `/264h` · `/265h` | Set the codec to H.264 or H.265 |
-| `/settings` | Show your encoder settings |
+| `/settings` | Open the **interactive settings panel** (every option is a button) |
 | `/reset` | Reset encoder settings to defaults |
 
 ### 👑 Owner and admin
@@ -324,7 +329,77 @@ Per-user settings are stored in `data/encoder.json`.
 
 ---
 
-## 🧰 Installation
+## 🎛️ Settings Panel
+
+Send `/settings` and tap buttons instead of typing flags. Every tap is saved instantly for your user.
+
+| Button | Options |
+|:--|:--|
+| 🎞 **Codec** | H.264, H.265 |
+| 📐 **Resolution** | Original, 360p, 480p, 576p, 720p, 1080p, 1440p, 4K |
+| ⚡ **Preset** | `ultrafast` to `slow` |
+| 🎚 **CRF** | Quick values 18 to 32, plus ➖ / ➕ for fine steps |
+| 🔊 **Audio** | AAC, Copy, AC3, Opus, bitrate 64k to 256k |
+| 📦 **Format** | MP4, MKV, AVI |
+| 💬 **Subs** | Keep or remove subtitle tracks |
+| 🎨 **Tune** | None, Film, Animation, Grain |
+| 🏷 🚀 **Toggles** | Watermark, Faststart |
+| ♻️ **Reset** · ✖️ **Close** | Restore defaults, close the panel |
+
+The panel belongs to the user who opened it. Other people in a group cannot change your settings, and the card stays on screen for 10 minutes. When you are done, reply to a video with `/encode`.
+
+---
+
+## ☁️ Deploy on Heroku
+
+The repository ships a `Dockerfile`, `heroku.yml` and `app.json`, so Heroku builds a container where **all system packages (FFmpeg, 7-Zip, bsdtar) are installed at build time**. Nothing is downloaded when the dyno starts.
+
+### Option A: one click
+
+1. Press the **Deploy to Heroku** button at the top of this page.
+2. Fill in `BOT_TOKEN`, `TELEGRAM_API`, `TELEGRAM_HASH` and `OWNER_ID`.
+3. Deploy, then open **Resources** and make sure the `web` dyno is on.
+
+### Option B: Heroku CLI
+
+```bash
+heroku login
+heroku create your-app-name --stack container
+
+heroku config:set \
+  BOT_TOKEN="123456:ABC..." \
+  TELEGRAM_API=123456 \
+  TELEGRAM_HASH="your_api_hash" \
+  OWNER_ID=123456789 \
+  AUTHORIZED_CHATS="-1001234567890" \
+  TIMEZONE="Asia/Dhaka"
+
+git push heroku main
+heroku ps:scale web=1
+heroku logs --tail
+```
+
+If your branch is called `master`, push with `git push heroku master`.
+
+### How it behaves on Heroku
+
+- **Web dyno.** The bot opens a small status page on `$PORT` *before* it logs in to Telegram, so Heroku never reports a boot timeout. Open your app URL to see uptime, memory, free disk and which tools were found. `/health` returns the same data as JSON.
+- **Config Vars instead of `config.py`.** Every setting in the [Configuration](#%EF%B8%8F-configuration) tables works as a Config Var with the same name. Never upload `config.py`.
+- **YouTube cookies.** Paste the content of your Netscape `cookies.txt` into a Config Var named `YT_COOKIES`. It is written to a file on every start.
+- **Defaults for small dynos.** `MAX_CONCURRENT_TASKS=1`, `MAX_PARALLEL_FFMPEG=1`, `MIN_FREE_DISK_GB=1`. Raise them only on bigger dynos.
+
+### Good to know
+
+| Topic | What to expect |
+|:--|:--|
+| **Storage is temporary** | Heroku wipes the disk on every restart and at least once every 24 hours. Downloads in progress are lost, and so are the saved encoder settings, thumbnails and authorized or premium lists stored under `data/`. Put permanent admins in `OWNER_ID`, `SUDO_USERS` and `AUTHORIZED_CHATS` Config Vars. |
+| **Dyno size** | Encoding needs RAM and CPU. A `basic` dyno has 512 MB, which is fine for downloads and light encodes. For H.265 or 1080p and above use `standard-2x` or larger. If logs show `R14` or `R15`, the dyno ran out of memory. |
+| **Eco dynos sleep** | A web dyno on the Eco plan sleeps after 30 minutes without web traffic and the bot goes offline. Use Basic or higher, or ping `/health` every few minutes from an uptime monitor. |
+| **Restarts** | A restart (deploy, daily cycle, `/restart`) logs the bot in to Telegram again. Avoid rapid restart loops, because Telegram answers those with a flood wait. |
+
+---
+
+## 🧰 Installation (local / VPS / Termux)
 
 ### Requirements
 
@@ -477,7 +552,10 @@ RS_ENCODER_MIRROR_BOT/
 ├── main.py                 # Launcher: setup, supervision, auto-restart
 ├── config.example.py       # Safe config template (copy to config.py)
 ├── requirements.txt
-├── Procfile                # Worker process for PaaS hosting
+├── Dockerfile              # Heroku / Docker image with FFmpeg and 7-Zip preinstalled
+├── heroku.yml              # Tells Heroku to build the Dockerfile
+├── app.json                # Deploy-button definition and Config Var list
+├── Procfile                # Web process (used by non-container hosts)
 ├── start.bat               # One-click Windows launcher
 ├── install.sh              # Rootless installer for ffmpeg, yt-dlp and 7-Zip (into ./bin)
 ├── rs_setup.py             # Pre-flight: checks and installs Python packages
@@ -493,7 +571,8 @@ RS_ENCODER_MIRROR_BOT/
 │
 └── lite/                   # Bot core
     ├── bot.py              # Handlers, commands, UI
-    ├── encoder_commands.py # /encode and resolution commands
+    ├── encoder_commands.py # /encode, resolution commands and the /settings panel
+    ├── heroku.py           # Status page on $PORT, YT_COOKIES support
     ├── pipeline.py         # Download → extract → encode → upload
     ├── http_dl.py          # Multi-connection direct downloader
     ├── ytdl.py             # yt-dlp integration
@@ -532,7 +611,7 @@ RS_ENCODER_MIRROR_BOT/
 > [!WARNING]
 > Never commit real credentials. A leaked bot token lets anyone control your bot.
 
-- Keep `config.py` and `cookies.txt` out of Git (the included `.gitignore` already does this).
+- Keep `config.py` and `cookies.txt` out of Git (the included `.gitignore` already does this). On Heroku, keep secrets in Config Vars only.
 - Keep TMDb and other API keys private.
 - Restrict owner and sudo access, and use `AUTHORIZED_CHATS`.
 - Protect your server and download directory.
