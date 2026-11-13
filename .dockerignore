@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+__pycache__
+*.pyc
+*.session
+*.session-journal
+config.py
+cookies.txt
+.env
+data
+downloads
+bin
+log.txt
+.rs_main.pid
+start.bat
+README.md
